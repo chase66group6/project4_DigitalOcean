@@ -1,0 +1,42 @@
+.card {
+  position: relative;
+  height: 30rem;
+  width: 26rem;
+  margin: 2rem 0rem 0rem 0rem;
+}
+
+.search-bar {
+  height: 100%;
+  width: 100%;
+}
+
+.favorites-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
+
+.search-button {
+  width: 8rem;
+  margin-top: -0.5rem;
+  height: 2.7rem;
+}
+
+.nav-login-button {
+  margin-left: auto; 
+  margin-right: 1rem;
+}
+
+.cstm-card-img {
+  height: 15rem;
+  width: 100%;
+}
+
+.overflow-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

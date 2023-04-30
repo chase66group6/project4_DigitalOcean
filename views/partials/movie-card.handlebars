@@ -1,0 +1,57 @@
+{{#each movies}}
+ <div class="col-md-4">
+    <div class="card">
+      {{#if image}}
+        <img class="card-img-top cstm-card-img" src={{image}} alt="Card image cap" />
+      {{else}}
+        <img
+          class="card-img-top cstm-card-img"
+          src="https://via.placeholder.com/420x420"
+          alt="Card image cap"
+        />
+      {{/if}}
+      <div class="card-body">
+        {{#if name}}
+           <h5 class="card-title">{{name}}</h5>
+        {{else}}
+          <h5 class="card-title">No Title</h5>
+        {{/if}}
+
+        {{#if summary}}
+          <p class="card-text overflow-text">{{summary}}</p>
+        {{else}}
+          <p class="card-text overflow-text">No summary available.</p>
+        {{/if}}
+      </div>
+        <div class="card-footer d-flex justify-content-between">
+          <span>
+            <a class="btn btn-outline-primary" target="_blank" href={{url}}>See More</a>
+          </span>
+
+          {{#if isFavorite}}
+          <form method="POST" action="/removeFavorite">
+            <span>
+              <input type="hidden" value={{showId}} name="showId"/>
+              <input type="hidden" value={{../currentUser.usernameID}} name="usernameID"/>
+              <button type="submit" class="btn btn-outline-danger">Remove From Favorites</button>
+            </span>
+          </form>
+          {{else}}
+          <form method="POST" action="/addFavorite">
+            <span>
+              <input type="hidden" value={{../currentUser.usernameID}} name="usernameID"/>
+              <input type="hidden" value={{showId}} name="showId"/>
+              <input type="hidden" value="{{name}}" name="name"/>
+              <input type="hidden" value={{url}} name="url"/>
+              <input type="hidden" value="{{summary}}" name="summary"/>
+              <input type="hidden" value={{image}} name="image"/>
+              <input type="hidden" value={{isOnAir}} name="isOnAir"/>
+              <input type="hidden" value="true" name="isFavorite">
+              <button type="submit" class="btn btn-outline-success">Add To Favorites</button>
+            </span>
+          </form>
+          {{/if}}
+        </div>
+    </div>
+  </div>
+{{/each}}

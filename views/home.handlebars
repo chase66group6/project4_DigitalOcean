@@ -1,0 +1,14 @@
+{{> navbar user=currentUser}}
+<div class="container">
+  <h1 class="mt-5">Welcome, {{currentUser.username}}</h1>
+  {{> searchbar currentUser=currentUser}}
+  <div class="row">
+    {{#if currentUser.favorites.length}}
+    {{!-- left side of equals is what movie-card will use, right side of equals is what home.handlebars is getting --}}
+    {{> movie-card movies=currentUser.favorites currentUser=currentUser}}
+    {{else}}
+    <div class="col-12 mt-4">
+      <h3>No Favorites Found! Go get some!</h3>
+      {{/if}}
+    </div>
+  </div>

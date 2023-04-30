@@ -1,0 +1,11 @@
+{{> navbar user=currentUser}}
+<div class="container">
+  <div class="row">
+    {{#if movies.length}}
+    {{> movie-card movies=movies}}
+    {{else}}
+    <div class="col-12 mt-4">
+      <h3>No Results Found! Retry by hitting home above!</h3>
+      {{/if}}
+    </div>
+  </div>
